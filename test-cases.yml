@@ -1,0 +1,91 @@
+---
+- summary: |
+    Проверка входа пользователя с существующими логином и паролем
+  requirement: |
+    При верном вводе логина и пароля пользователь должен войти в систему
+  prerequisites: |
+    Открыта страница логина
+  test-data: |
+    Логин = kos342@mail.ru Пароль = Quinto1990
+  steps:
+    - Вводим логин
+    - Вводим пароль
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Пользователь должен попасть на главную страницу
+    
+- summary: |
+    Проверка входа пользователя с несуществующими логином и паролем
+  requirement: |
+    При неправильном логине или пароле пользователь должен получить сообщение об ошибке
+  prerequisites: |
+    Открыта страница логина
+  test-data: |
+    Email = test@test.com Password = test
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Пользователь должен попасть на стартовую страницу.
+    
+- summary: |
+    Проверка работоспособности сайта на мобильном устройстве
+  requirement: |
+    Сайт должен быть удобным на мобильном устройстве
+  prerequisites: |
+    На мобильном устройстве открыта страница логина
+  test-data: |
+    Email = kos342@mail.ru Password = Quinto1990
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Пользователь должен попасть на главную страницу
+    
+- summary: |
+    Проверка входа на сайт с помощью профиля Github
+  requirement: |
+    Сайт позволяет регистрироваться с помощью Github и Discord
+  prerequisites: |
+    Открыта страница логина
+  test-data: |
+    site = "https://codebattle.hexlet.io/session/new?locale=en&next=%2F"
+  steps:
+    - Нажать кнопку "Sign in with Github"
+    - Подтвердить действие в новом окне
+  expected-result: |
+    Пользователь должен попасть на стартовую страницу
+    
+- summary: |
+    Проверка кросс-браузерности сайта
+  requirement: |
+    Сайт должен быть протестирован на совместимость с последними версиями браузеров
+  prerequisites: |
+    На ПК имеется активное интернет-соединение
+  test-data: |
+    site-adress = "https://codebattle.hexlet.io/"
+  steps:
+    - Открыть сайт Browserstack (https://browserstack.com)
+    - Нажать кнопку "GO TO DASHBOARD"
+    - Открыть сайт Codebattle (https://codebattle.hexlet.io/) в браузере Mozilla Firefox
+  expected-result: |
+    Сайт соответствует макету, все элементы расположены согласно макету
+    
+- summary: |
+    Регистрация нового пользователя на сайте
+  requirement: |
+    Сайт позволяет новому пользователю зарегистрироваться
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Nickname = kos_342 Email= kos342@mail.ru Password = Quinto1990
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим пароль
+    - Повторно вводим пароль
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Пользователь должен попасть на главную страницу
